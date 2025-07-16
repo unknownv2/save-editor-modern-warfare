@@ -1,0 +1,59 @@
+{
+  "name": "vantage-mwr-editor",
+  "author": "unknownv2",
+  "description": "Modern Warfare Remastered campaign editor for Vantage.",
+  "version": "0.1.0",
+  "vantage": {
+    "game": "Modern Warfare Remastered",
+    "scid": "d8890100-b864-45cd-b20e-62d40020e1b2",
+    "thumbnailUrl": "http://images-eds.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcK_gPjzG5w4baW6ZxZj7nSNBN2cXpgreRaLIiMBc_..oxHoGRtiI.Rxrwbv0dcLCqCVVUy3ocIr0kykyEoCjviw741jh0CN0aACy2XTrrvBn706wClzfQ1H9Xck59sA9RDDIsrvN7DLJq1bWhmY_fv0ZRH8fPnUp_54hCkEdZKqM-&w=128&h=128",
+    "name": "Campaign Editor",
+    "containerFilter": "savegame.svg",
+    "fileFilter": "save"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unknownv2/editor-skeleton.git"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "aurelia-animator-css": "^1.0.1",
+    "aurelia-bootstrapper": "^2.1.0",
+    "big-integer": "^1.6.23",
+    "bluebird": "^3.4.1",
+    "crc-32": "^1.0.2",
+    "libvantage": "^0.1.1",
+    "requirejs": "^2.3.2",
+    "text": "github:requirejs/text#latest",
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "aurelia-cli": "^0.27.0",
+    "aurelia-testing": "^1.0.0-beta.2.0.1",
+    "aurelia-tools": "^1.0.0",
+    "browser-sync": "^2.13.0",
+    "connect-history-api-fallback": "^1.2.0",
+    "event-stream": "^3.3.3",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-changed-in-place": "^2.0.3",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "gulp-typescript": "^3.1.4",
+    "gulp-tslint": "^5.0.0",
+    "html-minifier": "^3.2.3",
+    "minimatch": "^3.0.2",
+    "through2": "^2.0.1",
+    "tslint": "^3.11.0",
+    "typescript": "^2.4",
+    "uglify-js": "^2.6.3",
+    "vinyl-fs": "^2.4.3"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/aurelia build --env prod",
+    "watch": "./node_modules/.bin/aurelia run --watch"
+  }
+}

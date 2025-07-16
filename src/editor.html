@@ -1,0 +1,59 @@
+<template>
+    <require from="libvantage/vantage.css"></require>
+    <header>Player</header>
+    <card label="God Mode">
+        <v-button disabled.bind="godModeEnabled" click.delegate="enableGodMode()">Enable God Mode</v-button>
+    </card>
+    <card label="Speed">
+        <v-slider min="0" max="1000" step="10" default="500" value.bind="seg2.dvars[hashes['g_speed']] | intDvar"></v-slider>
+    </card>
+    <card label="Jump Height">
+        <v-slider min="0" max="1000" step="10" value.bind="seg2.dvars[hashes['jump_height']] | intDvar"></v-slider>
+    </card>
+    <card label="Unlimited Sprint">
+        <v-switch value.bind="seg2.dvars[hashes['player_sprintUnlimited']] | boolDvar"></v-switch>
+    </card>
+    <card label="Sprint Speed Multiplier">
+        <v-slider min="0" max="25" step="0.5" value.bind="seg2.dvars[hashes['player_sprintSpeedScale']] | floatDvar"></v-slider>
+    </card>
+
+    <header>Weapons</header>
+    <card label="Unlimited Ammo">
+        <v-switch value.bind="seg2.dvars[hashes['player_sustainAmmo']] | boolDvar"></v-switch>
+    </card>
+    <card label="Clip Size Multiplier">
+        <v-slider min="1" max="50" step="0.5" log="true" placeholder="1" value.bind="seg2.dvars[hashes['player_clipSizeMultiplier']] | floatDvar"></v-slider>
+    </card>
+
+    <header>Environment</header>
+    <card label="Gravity">
+        <v-slider min="0" max="1000" step="5" value.bind="seg2.dvars[hashes['g_gravity']] | floatDvar"></v-slider>
+    </card>
+
+    <header>Advanced - DVARs</header>
+    <card label="DVAR Backup">
+        <v-button click.delegate="backupDvars()">Backup DVARs</v-button>
+        <v-button click.delegate="restoreDvars()">Restore DVARs...</v-button>
+    </card>
+    <card label="Filter DVARs">
+        <v-text type="text" style="width: 243px; max-width: none" value.bind="dvarFilter"></v-text>
+    </card>
+    <card>
+        <table>
+            <thead>
+                <th>DVAR</th>
+                <th>Value</th>
+            </thead>
+            <tbody>
+                <template repeat.for="dvar of seg2.dvars | objectKeys | dvars:dvarFilter">
+                    <tr if.bind="dvar | filterDvar:seg2.dvars:dvarFilter">
+                        <td>${dvar.name || dvar.hash}</td>
+                        <td>
+                            <v-text value.bind="seg2.dvars[dvar.hash]" placeholder="Not Set"></v-text>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </card>
+</template>
